@@ -1,1 +1,1 @@
-web: sentry start --no-daemon --config=sentry.conf.py
+web: sentry start --config=sentry.conf.py
