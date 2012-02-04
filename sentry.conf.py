@@ -1,6 +1,29 @@
 import os
 import urlparse
 
+
+# Monkeypatches
+# --------------
+
+# We have to exclude south from logging, because otherwise database migrations
+# fail, when Raven tries to log south, before the necessary tables are created,
+# which causes migrations to rollback.
+
+from raven import conf
+
+original_setup_logging = conf.setup_logging
+
+
+def setup_logging(handler, exclude=['raven', 'gunicorn', 'sentry.errors', 'south']):
+    return original_setup_logging(handler, exclude)
+
+conf.setup_logging = setup_logging
+
+
+# Generic
+# -------
+
+
 from sentry.conf.server import *
 
 ROOT = os.path.dirname(__file__)
@@ -28,57 +51,6 @@ DATABASES = {
         'HOST': url.hostname,
         'PORT': url.port,
     }
-}
-
-
-# Logging
-# -------
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': True,
-    'root': {
-        'level': 'WARNING',
-        'handlers': ['sentry'],
-    },
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-        },
-    },
-    'handlers': {
-        'sentry': {
-            'level': 'ERROR',
-            'class': 'raven.contrib.django.handlers.SentryHandler',
-        },
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
-        }
-    },
-    'loggers': {
-        'django.db.backends': {
-            'level': 'ERROR',
-            'handlers': ['console'],
-            'propagate': False,
-        },
-        'raven': {
-            'level': 'DEBUG',
-            'handlers': ['console'],
-            'propagate': False,
-        },
-        'sentry.errors': {
-            'level': 'DEBUG',
-            'handlers': ['console'],
-            'propagate': False,
-        },
-        'south': {
-            'handlers': ['null'],
-            'propagate': False,
-            'level': 'DEBUG',
-        },
-    },
 }
 
 
