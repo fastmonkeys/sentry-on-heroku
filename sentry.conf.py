@@ -1,4 +1,5 @@
 import os
+import urlparse
 
 from sentry.conf.server import *
 
