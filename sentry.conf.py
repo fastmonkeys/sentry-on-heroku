@@ -1,29 +1,6 @@
 import os
 import urlparse
 
-
-# Monkeypatches
-# --------------
-
-# We have to exclude south from logging, because otherwise database migrations
-# fail, when Raven tries to log south, before the necessary tables are created,
-# which causes migrations to rollback.
-
-from raven import conf
-
-original_setup_logging = conf.setup_logging
-
-
-def setup_logging(handler, exclude=['raven', 'gunicorn', 'sentry.errors', 'south']):
-    return original_setup_logging(handler, exclude)
-
-conf.setup_logging = setup_logging
-
-
-# Generic
-# -------
-
-
 from sentry.conf.server import *
 
 ROOT = os.path.dirname(__file__)
