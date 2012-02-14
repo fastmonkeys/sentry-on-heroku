@@ -51,3 +51,9 @@ EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
 EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# Disable the default admins (for email)
+ADMINS = ()
+
+# Set Sentry's ADMINS to a raw list of email addresses
+SENTRY_ADMINS = os.environ.get('ADMINS', '').split(',')
