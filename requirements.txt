@@ -15,6 +15,6 @@ psycopg2==2.4.4
 python-daemon==1.6
 pytz==2011n
 raven==1.4.3
-sentry==2.8.2
+sentry==2.9.0
 simplejson==2.3.2
 wsgiref==0.1.2
