@@ -57,3 +57,12 @@ ADMINS = ()
 
 # Set Sentry's ADMINS to a raw list of email addresses
 SENTRY_ADMINS = os.environ.get('ADMINS', '').split(',')
+
+# The threshold level to restrict emails to.
+SENTRY_MAIL_LEVEL = logging.WARNING
+
+# The prefix to apply to outgoing emails.
+SENTRY_EMAIL_SUBJECT_PREFIX = '[Sentry] '
+
+# The reply-to email address for outgoing mail.
+SENTRY_SERVER_EMAIL = os.environ.get('SERVER_EMAIL', 'root@localhost')
