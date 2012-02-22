@@ -9,12 +9,13 @@ django-templatetag-sugar==0.1
 eventlet==0.9.16
 greenlet==0.3.4
 gunicorn==0.13.4
-kombu==2.1.0
+kombu==1.5.1
 lockfile==0.9.1
+logan==0.2.1
 psycopg2==2.4.4
 python-daemon==1.6
 pytz==2011n
 raven==1.4.3
-sentry==2.9.0
+sentry==3.0.3
 simplejson==2.3.2
 wsgiref==0.1.2
