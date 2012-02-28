@@ -41,6 +41,10 @@ SENTRY_PUBLIC = False
 
 SENTRY_WEB_HOST = '0.0.0.0'
 SENTRY_WEB_PORT = int(os.environ.get('PORT', 9000))
+SENTRY_WEB_OPTIONS = {
+    'workers': 8,
+    'worker_class': 'gevent',
+}
 
 
 # Email configuration
