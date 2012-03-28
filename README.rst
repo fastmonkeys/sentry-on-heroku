@@ -15,7 +15,7 @@ Basic setup
 Follow the steps below to get Sentry up and running on Heroku:
 
 1. Create a new Heroku application. Replace "APP_NAME" with your
-   application's name.
+   application's name::
 
         heroku apps:create --stack cedar APP_NAME
 
