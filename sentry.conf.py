@@ -70,3 +70,17 @@ SENTRY_EMAIL_SUBJECT_PREFIX = '[Sentry] '
 
 # The reply-to email address for outgoing mail.
 SENTRY_SERVER_EMAIL = os.environ.get('SERVER_EMAIL', 'root@localhost')
+
+
+# SSL configuration
+# -----------------
+
+# Force secure connection.
+HTTPS_REQUIRED = 'HTTPS_REQUIRED' in os.environ
+
+# Whether to use a secure cookie for the session cookie.  If this is set to
+# `True`, the cookie will be marked as "secure," which means browsers may
+# ensure that the cookie is only sent under an HTTPS connection.
+SESSION_COOKIE_SECURE = True
+
+MIDDLEWARE_CLASSES += ('middleware.SSLMiddleware',)
