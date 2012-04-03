@@ -1,9 +1,12 @@
 import os
+import sys
 import urlparse
 
 from sentry.conf.server import *
 
 ROOT = os.path.dirname(__file__)
+
+sys.path.append(ROOT)
 
 
 # Database configuration
