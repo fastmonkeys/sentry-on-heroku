@@ -66,3 +66,12 @@ Follow the steps below, if you want to enable Sentry's email notifications:
 3. Set the email addresses that should be notified::
 
         heroku config:add ADMINS=john.matrix@example.com,jack.daniels@example.com
+
+
+Securing connection
+-------------------
+
+You can force the use of secure connection by setting ``HTTPS_REQUIRED``
+configuration variable::
+
+    heroku config:add HTTPS_REQUIRED=1
