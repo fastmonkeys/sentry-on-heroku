@@ -1,37 +1,11 @@
 import os
 import sys
-import urlparse
 
 from sentry.conf.server import *
 
 ROOT = os.path.dirname(__file__)
 
 sys.path.append(ROOT)
-
-
-# Database configuration
-# ----------------------
-#
-# See: http://devcenter.heroku.com/articles/django#postgres_database_config
-
-urlparse.uses_netloc.append('postgres')
-urlparse.uses_netloc.append('mysql')
-
-url = urlparse.urlparse(os.environ['DATABASE_URL'])
-engines = {
-    'postgres': 'django.db.backends.postgresql_psycopg2',
-    'mysql': 'django.db.backends.mysql',
-}
-DATABASES = {
-    'default': {
-        'ENGINE': engines[url.scheme],
-        'NAME': url.path[1:],
-        'USER': url.username,
-        'PASSWORD': url.password,
-        'HOST': url.hostname,
-        'PORT': url.port,
-    }
-}
 
 
 # Sentry configuration
