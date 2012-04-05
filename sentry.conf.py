@@ -23,6 +23,8 @@ SENTRY_WEB_OPTIONS = {
     'worker_class': 'gevent',
 }
 
+SENTRY_URL_PREFIX = os.environ.get('SENTRY_URL_PREFIX', '')
+
 
 # Email configuration
 # -------------------
