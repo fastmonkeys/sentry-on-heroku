@@ -35,15 +35,19 @@ Follow the steps below to get Sentry up and running on Heroku:
        >>> base64.b64encode(os.urandom(40))
        'nIumxPtjDuHunpX2D+LP27l8WX967DgjBRiSLz/XrfAp491bu3pnzw=='
 
-4. Deploy Sentry to Heroku::
+4. Force SSL, in order to use secure cookies::
+
+        heroku config:add HTTPS_REQUIRED=1
+
+5. Deploy Sentry to Heroku::
 
         git push heroku master
 
-5. Run Sentry's database migrations::
+6. Run Sentry's database migrations::
 
         heroku run "sentry --config=sentry.conf.py upgrade"
 
-6. Create a user account for yourself::
+7. Create a user account for yourself::
 
         heroku run "sentry --config=sentry.conf.py createsuperuser"
 
@@ -68,10 +72,3 @@ Follow the steps below, if you want to enable Sentry's email notifications:
         heroku config:add ADMINS=john.matrix@example.com,jack.daniels@example.com
 
 
-Securing connection
--------------------
-
-You can force the use of secure connection by setting ``HTTPS_REQUIRED``
-configuration variable::
-
-    heroku config:add HTTPS_REQUIRED=1

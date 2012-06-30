@@ -7,6 +7,8 @@ ROOT = os.path.dirname(__file__)
 
 sys.path.append(ROOT)
 
+import dj_database_url
+DATABASES = {'default': dj_database_url.config()}
 
 # Sentry configuration
 # --------------------
