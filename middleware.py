@@ -8,9 +8,6 @@ class SSLMiddleware(object):
         if request.is_secure():
             return True
 
-        if 'HTTP_X_FORWARDED_PROTO' in request.META:
-            return request.META['HTTP_X_FORWARDED_PROTO'] == 'https'
-
         return False
 
     def redirect(self, request):
