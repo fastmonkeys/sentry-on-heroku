@@ -12,6 +12,7 @@ django-crispy-forms==1.1.4
 django-indexer==0.3.0
 django-paging==0.2.4
 django-picklefield==0.2.1
+django-secure==0.1.2
 django-social-auth==0.7.5
 django-templatetag-sugar==0.1
 gevent==0.13.7
