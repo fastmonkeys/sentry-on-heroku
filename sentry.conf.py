@@ -10,6 +10,7 @@ sys.path.append(ROOT)
 import dj_database_url
 DATABASES = {'default': dj_database_url.config()}
 
+
 # Sentry configuration
 # --------------------
 
@@ -97,6 +98,17 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 # If set to True, causes `SecurityMiddleware` to redirect all non-HTTPS
 # requests to HTTPS
 SECURE_SSL_REDIRECT = True
+
+
+# Bcrypt
+# ------
+
+INSTALLED_APPS += ('django_bcrypt',)
+
+# Enables bcrypt password migration on a ``check_password()`` call.
+#
+# The hash is also migrated when ``BCRYPT_ROUNDS`` changes.
+BCRYPT_MIGRATE = True
 
 
 # Social Auth
