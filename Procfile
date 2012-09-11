@@ -1,1 +1,1 @@
-web: sentry --config=sentry.conf.py start
+web: gunicorn --config=gunicorn.conf.py sentry.wsgi:application
