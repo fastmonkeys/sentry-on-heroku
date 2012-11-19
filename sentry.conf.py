@@ -19,6 +19,14 @@ SENTRY_KEY = os.environ.get('SENTRY_KEY')
 # Set this to false to require authentication
 SENTRY_PUBLIC = False
 
+SENTRY_WEB_HOST = '0.0.0.0'
+SENTRY_WEB_PORT = int(os.environ.get('PORT', 9000))
+SENTRY_WEB_OPTIONS = {
+    'workers': 8,
+    'worker_class': 'gevent',
+    'secure_scheme_headers': {'X-FORWARDED-PROTO': 'https'}
+}
+
 SENTRY_URL_PREFIX = os.environ.get('SENTRY_URL_PREFIX', '')
 
 
