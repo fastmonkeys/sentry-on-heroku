@@ -24,7 +24,6 @@ SENTRY_WEB_PORT = int(os.environ.get('PORT', 9000))
 SENTRY_WEB_OPTIONS = {
     'workers': 3,
     'worker_class': 'gevent',
-    'secure_scheme_headers': {'X-FORWARDED-PROTO': 'https'}
 }
 
 SENTRY_URL_PREFIX = os.environ.get('SENTRY_URL_PREFIX', '')
@@ -60,6 +59,8 @@ SENTRY_SERVER_EMAIL = os.environ.get('SERVER_EMAIL', 'root@localhost')
 
 INSTALLED_APPS += ('djangosecure',)
 MIDDLEWARE_CLASSES += ('djangosecure.middleware.SecurityMiddleware',)
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Whether to use HTTPOnly flag on the session cookie. If this is set to `True`,
 # client-side JavaScript will not to be able to access the session cookie.
