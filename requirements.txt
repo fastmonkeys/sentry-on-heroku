@@ -36,7 +36,7 @@ python-openid==2.2.5
 pytz==2012j
 raven==3.1.16
 sentry==5.4.1
-sentry-github==0.1.1
+sentry-github==0.1.2
 simplejson==3.1.0
 six==1.2.0
 wsgiref==0.1.2
