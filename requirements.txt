@@ -17,7 +17,7 @@ django-paging==0.2.4
 django-picklefield==0.3.0
 django-secure==0.1.2
 django-social-auth==0.7.20
-django-social-auth-trello==1.0.2
+django-social-auth-trello==1.0.3
 django-static-compiler==0.3.1
 django-templatetag-sugar==0.1
 gevent==0.13.8
@@ -34,8 +34,8 @@ pynliner==0.4.0
 python-dateutil==1.5
 python-openid==2.2.5
 pytz==2012j
-raven==3.1.16
-sentry==5.4.1
+raven==3.2.0
+sentry==5.4.5
 sentry-github==0.1.2
 simplejson==3.1.0
 six==1.2.0

@@ -22,11 +22,11 @@ Follow the steps below to get Sentry up and running on Heroku:
 2. Add database to the application::
 
         heroku addons:add heroku-postgresql:dev
-        heroku pg:promote HEROKU_POSTGRESQL_COLOR
+        heroku pg:promote $(heroku config -s | awk -F= '$1 ~ /^HEROKU_POSTGRESQL_[A-Z]+_URL$/ {print $1}')
 
 3. Set the Django settings module to be used::
 
-        heroku config:add DJANGO_SETTINGS_MODULE=sentry_conf
+        heroku config:add DJANGO_SETTINGS_MODULE=sentry.conf
 
 4. Set Sentry's shared secret for global administration privileges::
 
@@ -46,11 +46,11 @@ Follow the steps below to get Sentry up and running on Heroku:
 
 6. Run Sentry's database migrations::
 
-        heroku run "sentry --config=sentry_conf.py upgrade"
+        heroku run "sentry --config=sentry.conf.py upgrade"
 
 7. Create a user account for yourself::
 
-        heroku run "sentry --config=sentry_conf.py createsuperuser"
+        heroku run "sentry --config=sentry.conf.py createsuperuser"
 
 That's it!
 
