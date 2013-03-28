@@ -30,15 +30,7 @@ Follow the steps below to get Sentry up and running on Heroku:
 
 4. Set Sentry's shared secret for global administration privileges::
 
-        heroku config:add SENTRY_KEY='0123456789abcde'
-
-   You may use the following Python code to generate a good unique key for
-   the above::
-
-       >>> import base64
-       >>> import os
-       >>> base64.b64encode(os.urandom(40))
-       'nIumxPtjDuHunpX2D+LP27l8WX967DgjBRiSLz/XrfAp491bu3pnzw=='
+        heroku config:add SECRET_KEY=$(python -c "import base64, os; print base64.b64encode(os.urandom(40))")
 
 5. Deploy Sentry to Heroku::
 
