@@ -6,7 +6,7 @@ Sentry on Heroku
     needed to do a proper post-mortem without any of the hassle of the
     standard user feedback loop.
 
-    .. _Sentry: https://github.com/dcramer/sentry
+    .. _Sentry: https://github.com/getsentry/sentry
 
 
 Basic setup
