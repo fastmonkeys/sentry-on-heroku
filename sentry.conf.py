@@ -49,10 +49,10 @@ SENTRY_ADMINS = os.environ.get('ADMINS', '').split(',')
 SENTRY_MAIL_LEVEL = logging.WARNING
 
 # The prefix to apply to outgoing emails.
-SENTRY_EMAIL_SUBJECT_PREFIX = '[Sentry] '
+EMAIL_SUBJECT_PREFIX = '[Sentry] '
 
 # The reply-to email address for outgoing mail.
-SENTRY_SERVER_EMAIL = os.environ.get('SERVER_EMAIL', 'root@localhost')
+SERVER_EMAIL = os.environ.get('SERVER_EMAIL', 'root@localhost')
 
 
 # Security
