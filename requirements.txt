@@ -38,6 +38,7 @@ pytz==2013.9
 raven==4.0.3
 redis==2.8.0
 sentry==6.4.4
+sentry-flowdock==0.1.1
 sentry-github==0.1.2
 setproctitle==1.1.8
 simplejson==3.3.2
