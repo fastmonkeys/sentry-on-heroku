@@ -52,7 +52,7 @@ Follow the steps below to get Sentry up and running on Heroku:
 5. Set the absolute URL to the Sentry root directory. The URL should not include
    a trailing slash. Replace the URL below with your application's URL::
 
-        heroku config:set SENTRY_URL_PREFIX=https://sentry.example.com
+        heroku config:set SENTRY_URL_PREFIX=https://sentry-example.herokuapp.com
 
 6. Deploy Sentry to Heroku::
 
