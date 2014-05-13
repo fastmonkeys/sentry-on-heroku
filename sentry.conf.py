@@ -54,6 +54,11 @@ EMAIL_SUBJECT_PREFIX = '[Sentry] '
 # The reply-to email address for outgoing mail.
 SERVER_EMAIL = os.environ.get('SERVER_EMAIL', 'root@localhost')
 
+DEFAULT_FROM_EMAIL = os.environ.get(
+    'DEFAULT_FROM_EMAIL',
+    'webmaster@localhost'
+)
+
 
 # Security
 # --------
