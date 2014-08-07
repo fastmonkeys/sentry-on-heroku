@@ -33,9 +33,15 @@ SENTRY_URL_PREFIX = os.environ.get('SENTRY_URL_PREFIX', '')
 # Email configuration
 # -------------------
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
-EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME')
+if 'SENDGRID_USERNAME' in os.environ:
+    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME')
+    EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
+elif 'MANDRILL_USERNAME' in os.environ:
+    EMAIL_HOST = 'smtp.mandrillapp.com'
+    EMAIL_HOST_USER = os.environ.get('MANDRILL_USERNAME')
+    EMAIL_HOST_PASSWORD = os.environ.get('MANDRILL_APIKEY')
+
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

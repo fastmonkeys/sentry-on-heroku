@@ -57,9 +57,13 @@ Email notifications
 
 Follow the steps below, if you want to enable Sentry's email notifications:
 
-1. Add SendGrid add-on to your Heroku application::
+1. Add either SendGrid or Mandrill add-on to your Heroku application::
 
         heroku addons:add sendgrid
+
+   or::
+
+        heroku addons:add mandrill
 
 2. Set the reply-to email address for outgoing mail::
 
