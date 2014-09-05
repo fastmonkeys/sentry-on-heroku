@@ -9,8 +9,23 @@ Sentry on Heroku
     .. _Sentry: https://github.com/getsentry/sentry
 
 
-Basic setup
------------
+Quick setup
+-------------
+
+Click the button below to automatically set up the Sentry in an app running on
+your Heroku account.
+
+.. image:: https://www.herokucdn.com/deploy/button.png
+   :target: https://heroku.com/deploy
+   :alt: Deploy
+
+Finally, you need to setup your first user::
+
+    heroku run "sentry --config=sentry.conf.py createsuperuser" --app YOURAPPNAME
+
+
+Manual setup
+-------------
 
 Follow the steps below to get Sentry up and running on Heroku:
 
