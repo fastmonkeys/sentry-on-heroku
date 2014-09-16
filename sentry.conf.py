@@ -16,6 +16,7 @@ DATABASES = {'default': dj_database_url.config()}
 # --------------------
 
 SENTRY_KEY = os.environ.get('SENTRY_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # Set this to false to require authentication
 SENTRY_PUBLIC = False

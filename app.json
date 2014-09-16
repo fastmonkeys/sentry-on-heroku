@@ -17,6 +17,10 @@
       "description": "The Django settings module to use",
       "value": "sentry.conf"
     },
+    "SECRET_KEY": {
+      "description": "A secret key for a particular Django installation. This is used to provide cryptographic signing, and should be set to a unique, unpredictable value.",
+      "generator": "secret"
+    },
     "SENTRY_KEY": {
       "description": "Sentry's shared secret for global administration privileges",
       "generator": "secret"
