@@ -30,6 +30,16 @@ SENTRY_WEB_OPTIONS = {
 SENTRY_URL_PREFIX = os.environ.get('SENTRY_URL_PREFIX', '')
 
 
+# Caching
+# -------
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+
+
 # Email configuration
 # -------------------
 
