@@ -89,3 +89,14 @@ Follow the steps below, if you want to enable Sentry's email notifications:
 3. Set the email addresses that should be notified::
 
         heroku config:set ADMINS=john.matrix@example.com,jack.daniels@example.com
+
+
+Version notes
+-------------------
+
+The version of Sentry pinned in the ``requirements.txt`` file is one of the last for which Redis was not a hard dependency. Newer versions of Sentry will not work on Heroku using this configuration as Redis is required.
+
+Note that if you are sending events from raven (e.g. in Django) to an installation of Sentry provided by this repo, you will need to pin the raven version to ``5.0.0`` otherwise you will get errors about mismatched protocols.
+
+You may also need to add a ``?timeout=`` parameter to your DSN URL in Django, or messages to Sentry may time out. Values of 3 seconds and up seem to work fine.
+
