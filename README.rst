@@ -37,7 +37,7 @@ Follow the steps below to get Sentry up and running on Heroku:
 2. Add database to the application::
 
         heroku addons:create heroku-postgresql:dev
-        heroku pg:promote $(heroku config -s | awk -F= '$1 ~ /^HEROKU_POSTGRESQL_[A-Z]+_URL$/ {print $1}')
+        heroku pg:promote $(heroku config -s | awk -F= '$1 ~ /^HEROKU_POSTGRESQL_[A-Z]+_URL$/ {print $1}' | sed 's/_URL$//')
 
 3. Set the Django settings module to be used::
 
