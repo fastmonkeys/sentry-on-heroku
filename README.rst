@@ -36,7 +36,7 @@ Follow the steps below to get Sentry up and running on Heroku:
 
 2. Add database to the application::
 
-        heroku addons:add heroku-postgresql:dev
+        heroku addons:create heroku-postgresql:dev
         heroku pg:promote $(heroku config -s | awk -F= '$1 ~ /^HEROKU_POSTGRESQL_[A-Z]+_URL$/ {print $1}')
 
 3. Set the Django settings module to be used::
@@ -76,11 +76,11 @@ Follow the steps below, if you want to enable Sentry's email notifications:
 
 1. Add either SendGrid or Mandrill add-on to your Heroku application::
 
-        heroku addons:add sendgrid
+        heroku addons:create sendgrid
 
    or::
 
-        heroku addons:add mandrill
+        heroku addons:create mandrill
 
 2. Set the reply-to email address for outgoing mail::
 
