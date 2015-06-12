@@ -9,8 +9,7 @@
   ],
   "addons": [
     "heroku-postgresql:dev",
-    "mandrill:starter",
-    "newrelic:stark"
+    "mandrill:starter"
   ],
   "env": {
     "DJANGO_SETTINGS_MODULE": {
