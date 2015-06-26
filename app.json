@@ -8,7 +8,7 @@
     "error"
   ],
   "addons": [
-    "heroku-postgresql:dev",
+    "heroku-postgresql:hobby-dev",
     "mandrill:starter"
   ],
   "env": {
