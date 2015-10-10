@@ -1,0 +1,11 @@
+dj-database-url
+django-bcrypt
+django-secure
+gevent
+kombu<3.0.27     # kombu 3.0.27 breaks compatibility with Django 1.6
+ndg-httpsclient  # required by requests
+psycopg2
+sentry
+sentry-flowdock
+sentry-github
+uwsgi

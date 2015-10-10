@@ -1,1 +1,3 @@
-web: newrelic-admin run-program sentry --config=sentry.conf.py start
+web: uwsgi --ini=uwsgi.ini --http=0.0.0.0:$PORT
+worker: sentry --config=sentry.conf.py celery worker --loglevel=INFO
+beat: sentry --config=sentry.conf.py celery beat --loglevel=INFO
