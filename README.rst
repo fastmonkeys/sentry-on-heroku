@@ -40,7 +40,7 @@ Follow the steps below to get Sentry up and running on Heroku:
 
 3. Add Redis to the application::
 
-        heroku addons:create heroku-redis:hobby-dev
+        heroku addons:create heroku-redis:premium-0
 
 4. Set Django's secret key for cryptographic signing and Sentry's shared secret
    for global administration privileges::
