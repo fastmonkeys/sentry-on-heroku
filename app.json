@@ -10,7 +10,7 @@
   "addons": [
     "heroku-postgresql:hobby-dev",
     "heroku-redis:premium-0",
-    "mandrill:basic"
+    "sendgrid:starter"
   ],
   "env": {
     "SECRET_KEY": {
