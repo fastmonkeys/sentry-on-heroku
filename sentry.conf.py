@@ -24,7 +24,7 @@ SENTRY_USE_BIG_INTS = True
 # Note: This will be reported back to getsentry.com as the point of contact. See
 # the beacon documentation for more information. This **must** be a string.
 
-SENTRY_ADMIN_EMAIL = os.environ.get('SENTRY_ADMIN_EMAIL', '')
+SENTRY_OPTIONS['system.admin-email'] = os.environ.get('SENTRY_ADMIN_EMAIL', '')
 
 # Instruct Sentry that this install intends to be run by a single organization
 # and thus various UI optimizations should be enabled.
@@ -41,13 +41,15 @@ SENTRY_FEATURES['auth:register'] = False
 # Buffers, Quotas, TSDB
 
 redis_url = urlparse.urlparse(os.environ['REDIS_URL'])
-SENTRY_REDIS_OPTIONS = {
-    'hosts': {
-        0: {
-            'host': redis_url.hostname,
-            'port': redis_url.port,
-            'password': redis_url.password,
-            'db': 0,
+SENTRY_OPTIONS['redis.clusters'] = {
+    'default': {
+        'hosts': {
+            0: {
+                'host': redis_url.hostname,
+                'port': redis_url.port,
+                'password': redis_url.password,
+                'db': 0,
+            }
         }
     }
 }
@@ -138,7 +140,7 @@ SENTRY_FILESTORE_OPTIONS = {
 ##############
 
 # You MUST configure the absolute URI root for Sentry:
-SENTRY_URL_PREFIX = os.environ['SENTRY_URL_PREFIX']
+SENTRY_OPTIONS['system.url-prefix'] = os.environ['SENTRY_URL_PREFIX']
 
 SENTRY_WEB_HOST = '0.0.0.0'
 SENTRY_WEB_PORT = int(os.environ['PORT'])
@@ -155,17 +157,17 @@ SENTRY_WEB_OPTIONS = {
 # For more information check Django's documentation:
 #  https://docs.djangoproject.com/en/1.3/topics/email/?from=olddocs#e-mail-backends
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+SENTRY_OPTIONS['mail.backend'] = 'django.core.mail.backends.smtp.EmailBackend'
 
 if 'SENDGRID_USERNAME' in os.environ:
-    EMAIL_HOST = 'smtp.sendgrid.net'
-    EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
-    EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+    SENTRY_OPTIONS['mail.host'] = 'smtp.sendgrid.net'
+    SENTRY_OPTIONS['mail.username'] = os.environ['SENDGRID_USERNAME']
+    SENTRY_OPTIONS['mail.password'] = os.environ['SENDGRID_PASSWORD']
+SENTRY_OPTIONS['mail.port'] = 587
+SENTRY_OPTIONS['mail.use-tls'] = True
 
 # The email address to send on behalf of
-SERVER_EMAIL = os.environ.get('SERVER_EMAIL', 'root@localhost')
+SENTRY_OPTIONS['mail.from'] = os.environ.get('SERVER_EMAIL', 'root@localhost')
 
 # If you're using mailgun for inbound mail, set your API key and configure a
 # route to forward to /api/hooks/mailgun/inbound/
@@ -258,4 +260,4 @@ BITBUCKET_CONSUMER_SECRET = os.environ.get('BITBUCKET_CONSUMER_SECRET')
 
 # If this file ever becomes compromised, it's important to regenerate your SECRET_KEY
 # Changing this value will result in all current sessions being invalidated
-SECRET_KEY = os.environ['SECRET_KEY']
+SENTRY_OPTIONS['system.secret-key'] = os.environ['SECRET_KEY']
