@@ -171,7 +171,7 @@ SENTRY_OPTIONS['mail.from'] = os.environ.get('SERVER_EMAIL', 'root@localhost')
 
 # If you're using mailgun for inbound mail, set your API key and configure a
 # route to forward to /api/hooks/mailgun/inbound/
-MAILGUN_API_KEY = os.environ.get('MAILGUN_API_KEY', '')
+SENTRY_OPTIONS['mail.mailgun-api-key'] = os.environ.get('MAILGUN_API_KEY', '')
 
 ############
 # Security #
