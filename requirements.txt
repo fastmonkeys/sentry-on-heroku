@@ -68,7 +68,6 @@ rb==1.5                   # via sentry
 redis==2.10.5             # via rb, sentry
 requests[security]==2.10.0  # via sentry
 selenium==2.53.6          # via sentry
-sentry-flowdock==0.1.1
 sentry-github==0.1.2
 sentry==8.6.0
 setproctitle==1.1.10      # via sentry
