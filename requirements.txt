@@ -9,6 +9,7 @@ amqp==1.4.9               # via kombu
 anyjson==0.3.3            # via kombu
 BeautifulSoup==3.2.1      # via sentry
 billiard==3.3.0.23        # via celery
+boto==2.42.0
 celery==3.1.18            # via sentry
 cffi==1.7.0               # via cryptography
 click==6.6                # via sentry
@@ -27,6 +28,7 @@ django-picklefield==0.3.2  # via sentry
 django-recaptcha==1.0.5   # via sentry
 django-secure==1.0.1
 django-social-auth==0.7.28  # via sentry
+django-storages==1.4.1
 django-sudo==2.0.1        # via sentry
 django-templatetag-sugar==1.0  # via django-paging, sentry
 Django==1.6.11            # via django-bitfield, django-debug-toolbar, django-recaptcha, django-secure, django-social-auth, sentry

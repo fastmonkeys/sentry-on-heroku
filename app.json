@@ -29,6 +29,21 @@
       "description": "The administrative email for this installation. Note: This will be reported back to getsentry.com as the point of contact. See the beacon documentation for more information.",
       "value": "",
       "required": false
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "description": "Your Amazon Web Services access key",
+      "value": "",
+      "required": false
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "Your Amazon Web Services secret access key",
+      "value": "",
+      "required": false
+    },
+    "AWS_STORAGE_BUCKET_NAME": {
+      "description": "Your Amazon Web Services storage bucket name",
+      "value": "",
+      "required": false
     }
   },
   "scripts": {
