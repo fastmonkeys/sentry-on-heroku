@@ -40,7 +40,7 @@ SENTRY_FEATURES['auth:register'] = False
 # Generic Redis configuration used as defaults for various things including:
 # Buffers, Quotas, TSDB
 
-redis_url = urlparse.urlparse(os.environ['REDIS_URL'])
+redis_url = urlparse(os.environ['REDIS_URL'])
 SENTRY_OPTIONS['redis.clusters'] = {
     'default': {
         'hosts': {
