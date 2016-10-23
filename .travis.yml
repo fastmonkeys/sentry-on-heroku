@@ -1,3 +1,4 @@
+language: python
+python: "2.7"
 sudo: false
-install: "pip install -r requirements.txt --user travis"
 script: python -m py_compile sentry.conf.py
